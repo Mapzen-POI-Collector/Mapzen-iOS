@@ -1,0 +1,61 @@
+//
+// Prefix header for all source files of the 'DisplayTheMap' target in the 'DisplayTheMap' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+#endif
+
+
+#define ZEN_API_KEY @"518f15c781b5484cb89f78925904b783"
+
+#define ZEN_MAP_STYLE_ID 12549
+
+#define ZEN_MINIMAL_ZOOM 2
+#define ZEN_EDITABLE_ZOOM 16.6
+#define ZEN_TIMEOUT_INTERVAL 20.0
+
+// OSM_MAX_TAG_LENGTH responds to maximum record size, allowed in OSM api...
+#define OSM_MAX_TAG_LENGTH 255
+
+#define CREATED_BY_TAG @"Mapzen POI Collector"
+
+#define ZEN_VERSION @"1.3.XXL"
+
+#define COPYRIGHT_INFO @"© 2010 OpenStreetMap.org & contributors. CC-by-SA"
+
+
+#define kZenDefaultLocationLon  0.0f
+#define kZenDefaultLocationLat  0.0f
+#define kZenDefaultLocationZoom 2.0f
+
+
+// OSM OFFICIAL CREDENTIALS
+//#define OSM_DATASERVER        @"http://www.openstreetmap.org"
+#define OSM_DATASERVER        @"http://api06.dev.openstreetmap.org"
+#define OAUTH_KEY			  @"aa8X53H5S3150oA5rRcH8vOHYDM9SF12XGw8Oktq"
+#define OAUTH_SECRET		  @"3zPd2y0fQ0ygldNxOin90DdMbbA5QDLTcXkQKumF"
+#define OAUTH_RequestTokenURL @"http://www.openstreetmap.org/oauth/request_token"
+#define OAUTH_AccessTokenURL  @"http://www.openstreetmap.org/oauth/access_token"
+#define OAUTH_AuthoriseURL    @"http://www.openstreetmap.org/oauth/authorize"
+
+
+#pragma mark DEBUG
+
+#define ZEN_DEBUG 1
+
+#ifndef MAPZEN_LOGGER
+
+#if ZEN_DEBUG
+#define MAPZEN_LOGGER
+#define ZenLog(args...)    NSLog(args)
+#define LogMethod() NSLog(@"%s logged method call: -[%@ %s] (line %d)", _cmd, self, _cmd, __LINE__)
+#define WarnDeprecated() NSLog(@"***** WARNING: %s deprecated method call: -[%@ %s] (line %d)", _cmd, self, _cmd, __LINE__)
+#else
+#define MAPZEN_LOGGER
+#define ZenLog(args...)    // do nothing.
+#define LogMethod() 
+#define WarnDeprecated() 
+#endif //ZEN_DEBUG
+#endif //MAPZEN_LOGGER
